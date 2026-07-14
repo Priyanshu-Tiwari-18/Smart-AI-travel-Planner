@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripPilot - Welcome</title>
+    <!-- Sirf login.css ko link kiya hai -->
+    <link rel="stylesheet" href="css/login.css?v=1">
+</head>
+<body class="login-body">
+    
+    <div class="split-layout">
+        
+        <!-- LEFT SIDE: BRANDING & IMAGE -->
+        <div class="split-left fade-in">
+            <div class="left-content">
+                <div class="logo-large">✈️ Trip<span class="highlight">Pilot</span></div>
+                <h1 class="animate-fade-up" style="animation-delay: 0.2s;">Your personal AI travel concierge.</h1>
+                <p class="animate-fade-up" style="animation-delay: 0.3s;">Plan your next adventure in seconds. Join modern explorers generating hyper-personalized, multi-city itineraries effortlessly.</p>
+                
+                <div class="feature-list animate-fade-up" style="animation-delay: 0.4s;">
+                    <div class="feat-item"><span>🧠</span> Llama-3 AI Intelligence</div>
+                    <div class="feat-item"><span>🗺️</span> Seamless Multi-City Routing</div>
+                    <div class="feat-item"><span>💰</span> Dynamic Budget Estimation</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: LOGIN FORM -->
+        <div class="split-right">
+            <div class="login-form-container animate-fade-up" style="animation-delay: 0.1s;">
+                <h2>Welcome back ✨</h2>
+                <p class="subtitle">Login to access your saved itineraries and plan new trips.</p>
+                
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label>Gmail ID (Email)</label>
+                        <input type="email" id="email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="label-wrapper">
+                            <label>Password</label>
+                            <a href="#" id="forgot-pass" class="forgot-link">Forgot password?</a>
+                        </div>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login ➔</button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>New user? <a href="#" id="toggle-auth">Create an account</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

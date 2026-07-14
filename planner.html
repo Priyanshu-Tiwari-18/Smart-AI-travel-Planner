@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripPilot - Smart Itinerary Planner</title>
+    <!-- Version bump for cache bypass -->
+    <link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+
+    <!-- PROFESSIONAL NAVBAR -->
+    <header class="fade-in">
+        <div class="logo">✈️ Trip<span class="highlight">Pilot</span></div>
+        <nav class="desktop-nav">
+            <a href="#planner-section">Plan Trip</a>
+            <a href="#inspiration">Inspiration</a>
+            <a href="#about">How it Works</a>
+        </nav>
+        <div class="user-controls">
+            <span id="welcome-user"></span>
+            <button id="theme-toggle" class="btn-icon"><span id="theme-icon">🌙</span></button>
+            <button id="logout-btn" class="btn-outline">Logout</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="badge">AI-Powered Travel 🚀</span>
+            <h1 class="animate-fade-up" style="animation-delay: 0.1s;">Skip the endless research.<br>Generate your dream trip.</h1>
+            <p class="animate-fade-up" style="animation-delay: 0.3s;">Tell us where you want to go, your vibe, and your budget. Our advanced AI instantly crafts a hyper-personalized, multi-city itinerary just for you.</p>
+        </div>
+    </section>
+
+    <!-- MAIN PLANNER SECTION -->
+    <section class="main-planner" id="planner-section">
+        <div class="container" id="planner">
+            
+            <!-- RECENT SEARCHES -->
+            <div id="recent-searches-section" class="recent-searches-wrapper animate-fade-up" style="animation-delay: 0.4s;">
+                <p>Jump back in:</p>
+                <div id="recent-searches-container" class="recent-tags"></div>
+            </div>
+
+            <!-- GLASSMORPHISM FORM -->
+            <div class="form-card animate-fade-up" style="animation-delay: 0.5s;">
+                <h2>Design Your Itinerary ✨</h2>
+                <form id="travel-form">
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>From (Origin)</label>
+                            <input type="text" id="origin" placeholder="e.g. Delhi" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>To (Destination/s)</label>
+                            <input type="text" id="destination" placeholder="e.g. Manali, Kasol" required>
+                            <small class="pro-tip">💡 Pro tip: Comma-separate for multi-city trips!</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>Duration (Days)</label>
+                            <input type="number" id="days" min="1" max="14" placeholder="e.g. 4" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>Budget Level</label>
+                            <select id="budget">
+                                <option value="Backpacker (Low Budget)">Backpacker (Low Cost)</option>
+                                <option value="Standard (Mid Range)">Standard (Mid Range)</option>
+                                <option value="Luxury (High End)">Luxury (Premium)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>Traveler Category</label>
+                            <select id="category">
+                                <option value="Solo Traveler">Solo (Adventure & Freedom)</option>
+                                <option value="Family Trip">With Family (Comfort & Safety)</option>
+                            </select>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>What's your vibe?</label>
+                            <input type="text" id="interests" placeholder="e.g. aesthetic cafes, snow, mountains" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Generate My AI Itinerary 🚀</button>
+                </form>
+            </div>
+
+            <!-- Animated Loading State -->
+            <div id="loading" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p class="loading-text">Our AI is analyzing routes, cafes, and weather...</p>
+            </div>
+
+            <!-- Results -->
+            <div id="results" class="results-section hidden">
+                <div id="itinerary-content"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUGGESTED ROUTES (INSPIRATION) -->
+    <section class="inspiration-section" id="inspiration">
+        <div class="section-header animate-fade-up" style="animation-delay: 0.2s;">
+            <h2>Trending Routes</h2>
+            <p>Need ideas? Check out what other travelers are generating.</p>
+        </div>
+        <div class="card-grid">
+            <!-- Route Card 1 -->
+            <div class="route-card animate-fade-up" style="animation-delay: 0.3s;">
+                <div class="route-img">
+                    <img src="https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?auto=format&fit=crop&w=600&q=80" alt="Himalayas">
+                </div>
+                <div class="route-info">
+                    <h3>The Himalayan Circuit</h3>
+                    <p class="route-path">Delhi ➔ Shimla ➔ Manali</p>
+                    <div class="route-tags">
+                        <span>7 Days</span><span>Nature</span><span>Mid-Range</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Route Card 2 -->
+            <div class="route-card animate-fade-up" style="animation-delay: 0.4s;">
+                <div class="route-img">
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=600&q=80" alt="Beaches">
+                </div>
+                <div class="route-info">
+                    <h3>Coastal Escape</h3>
+                    <p class="route-path">Mumbai ➔ Goa ➔ Gokarna</p>
+                    <div class="route-tags">
+                        <span>5 Days</span><span>Beaches</span><span>Party</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Route Card 3 -->
+            <div class="route-card animate-fade-up" style="animation-delay: 0.5s;">
+                <div class="route-img">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Coffee Culture">
+                </div>
+                <div class="route-info">
+                    <h3>Cafe & Culture Run</h3>
+                    <p class="route-path">Bangalore ➔ Mysore ➔ Coorg</p>
+                    <div class="route-tags">
+                        <span>4 Days</span><span>Relaxing</span><span>Family</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / HOW IT WORKS -->
+    <section class="about-section" id="about">
+        <div class="section-header animate-fade-up" style="animation-delay: 0.2s;">
+            <h2>How TripPilot Works</h2>
+            <p>Smart algorithms powering your next vacation.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-box animate-fade-up" style="animation-delay: 0.3s;">
+                <div class="feature-icon">🧠</div>
+                <h4>Contextual Intelligence</h4>
+                <p>Our Llama-3 AI understands the difference between a solo backpacking trek and a relaxing family holiday.</p>
+            </div>
+            <div class="feature-box animate-fade-up" style="animation-delay: 0.4s;">
+                <div class="feature-icon">🗺️</div>
+                <h4>Smart Routing</h4>
+                <p>Input multiple cities, and the system automatically calculates logical travel days and transit times.</p>
+            </div>
+            <div class="feature-box animate-fade-up" style="animation-delay: 0.5s;">
+                <div class="feature-icon">💰</div>
+                <h4>Dynamic Costing</h4>
+                <p>Real-time budget estimations that adapt based on your selected tier and traveler count.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 TripPilot. Built by Priyanshu for modern explorers.</p>
+        </div>
+    </footer>
+
+    <script src="js/planner.js"></script>
+</body>
+</html>
