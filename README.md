@@ -24,11 +24,4 @@ The project consists of two main folders:
 * **Backend** – Contains the Express server, API routes, and environment configuration files.
 * **Frontend** – Contains the HTML, CSS, and JavaScript files for the user interface.
 
-## 📦 Installation & Setup
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/YOUR-USERNAME/smart-ai-travel-planner.git
-cd Smart-AI-Travel-Planner
-```
