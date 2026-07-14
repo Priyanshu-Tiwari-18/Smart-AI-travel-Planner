@@ -17,11 +17,5 @@ This project was developed as part of my academic learning to understand how AI 
 * **AI Integration:** Groq API
 * **Frontend:** HTML, CSS, JavaScript
 
-## 📁 Project Structure
-
-The project consists of two main folders:
-
-* **Backend** – Contains the Express server, API routes, and environment configuration files.
-* **Frontend** – Contains the HTML, CSS, and JavaScript files for the user interface.
 
 
